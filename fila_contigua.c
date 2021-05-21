@@ -54,7 +54,7 @@ bool fila_toString(Fila* f, char* str){
         if (i < f->qtdeElementos - 1) strcat(str, ",");
     }
     strcat(str, "]");
-    
+
     return true;
 }
 
@@ -66,8 +66,13 @@ bool fila_toString(Fila* f, char* str){
  * RETORNO: posição do elemento na fila ou -1 caso ele não seja encontrado
  */
 int fila_posicao(Fila* f, TipoElemento elemento){
-   
+    if(!fila_ehValida(f)) return -1;
+    if(fila_vazia(f)) return -1;
 
+    for (int i = 0; i < f->qtdeElementos; i++)
+        if (f->vetor[i] == elemento) return i;
+
+    return -1;
 }
 
 
