@@ -41,8 +41,21 @@ int fila_tamVetor(Fila* f){
  * RETORNO: true se a cópia foi realizada com sucesso e false caso contrário
  */
 bool fila_toString(Fila* f, char* str){
+    if(!fila_ehValida(f)) return false;
+
+    str[0] = '\0';
+    char elemento[50];
+    strcat(str, "[");
+    for (int i = 0; i < f->qtdeElementos; i++)
+    {
+        sprintf(elemento, "%d", f->vetor[i]);
+        strcat(str, elemento);
+
+        if (i < f->qtdeElementos - 1) strcat(str, ",");
+    }
+    strcat(str, "]");
     
-    
+    return true;
 }
 
 /**
