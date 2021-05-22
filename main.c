@@ -71,6 +71,5 @@ int main(){
     
     teste_relatorio(t1);    
     teste_desalocar(&t1);
-    
 
 }
